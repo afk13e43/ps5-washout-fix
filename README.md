@@ -2,6 +2,8 @@
 
 > Fix the washed-out colours of PS5 4K HDR `.webm` recordings — for YouTube uploads or local PC playback.
 
+**When does this happen?** Specifically when you have **HDR enabled on the PS5**, record gameplay at **4K**, and then **upload the resulting `.webm` to YouTube** (or play it on a regular PC monitor). The video looks milky, washed out, lifted blacks — nothing like what you saw on your TV. This tool fixes that.
+
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)
 ![Platform: Windows](https://img.shields.io/badge/platform-Windows-lightgrey.svg)
@@ -79,6 +81,17 @@ ps5video batch D:\Captures --mode both              # or scan a different folder
 ps5video --version
 ```
 
+## Try it with the bundled sample
+
+A 10-second 4K HDR clip from a PS5 capture is included at [`docs/sample.webm`](docs/sample.webm) (≈62 MB) so you can verify the toolchain end-to-end before recording your own footage.
+
+```powershell
+# After setup
+cp docs/sample.webm src_input/
+ps5video both sample.webm
+# Outputs: src_output/sample_hdr.mkv  +  src_output/sample_sdr.mp4
+```
+
 ## How to verify it worked
 
 1. `ps5video probe input.webm` should report `vp9 / bt2020 / smpte2084`.
@@ -109,6 +122,8 @@ This wrapper's Python code is MIT-licensed (see [LICENSE](LICENSE)). FFmpeg and 
 # 中文說明 (Traditional Chinese)
 
 > 修正 PS5 4K HDR `.webm` 錄影的「洗白」問題 — 適用 YouTube 上傳或 PC 本地播放。
+
+**什麼情況會發生這個問題？** 當你 **PS5 開啟 HDR**、用 **4K 錄製遊戲畫面**，再把產生的 `.webm` **上傳到 YouTube**（或在一般 PC 螢幕播放）時，影片會變得霧白、黑位被抬高、整個失去 HDR 在電視上看的層次感。這個工具就是解決這個情況。
 
 ## 這是什麼
 
@@ -143,6 +158,16 @@ conda activate ps5video
 Setup 腳本會建立 `ps5video` conda 環境（Python 3.12），下載 gyan.dev 靜態 FFmpeg full build（內含 `libplacebo`），複製進 env，並安裝 CLI。一次性，約 5 分鐘。
 
 > 註：腳本**跳過** `conda install ffmpeg`，因為 conda-forge 的 Windows FFmpeg 沒有 `libplacebo`，且其 `librsvg` post-link script 在中文 Windows 上會 cp950 編碼錯誤崩潰。gyan.dev 的靜態 build 同時解決兩個問題。
+
+## 內建 sample 試用
+
+附了一段 10 秒 4K HDR PS5 錄影在 [`docs/sample.webm`](docs/sample.webm)（約 62 MB），讓你在錄製自己的影片之前就能跑全套流程驗證。
+
+```powershell
+cp docs/sample.webm src_input/
+ps5video both sample.webm
+# 產出: src_output/sample_hdr.mkv  +  src_output/sample_sdr.mp4
+```
 
 ## 使用範例
 
