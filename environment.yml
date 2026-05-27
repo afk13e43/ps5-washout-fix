@@ -1,0 +1,11 @@
+name: ps5video
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - -e .
+# NOTE: ffmpeg is intentionally NOT installed via conda. The setup_env.ps1
+# script overlays gyan.dev's static "release-full" Windows build because
+# conda-forge's Windows ffmpeg does not ship libplacebo.

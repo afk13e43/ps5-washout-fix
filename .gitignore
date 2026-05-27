@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# Editors / tooling
+.vscode/
+.idea/
+.claude/
+*.swp
+.DS_Store
+
+# User media — keep folders (via .gitkeep) but don't commit captures or outputs
+src_input/*
+!src_input/.gitkeep
+src_output/*
+!src_output/.gitkeep
+
+# Local test artifacts at repo root
+/*.webm
+/*.mkv
+/*.mp4
+/frame_*.png
