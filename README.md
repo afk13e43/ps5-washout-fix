@@ -136,7 +136,7 @@ PS5 錄製的 4K 影片是 **WebM / VP9 / 10-bit / BT.2020 / PQ (SMPTE 2084) / O
 
 ## 為什麼網路上的 HandBrake 方法效果不夠好
 
-HandBrake 蓋 BT.709 濾鏡是最常被推薦的修法，但仍然會掉色。問題其實是三個一起出現：
+使用 HandBrake 蓋 BT.709 濾鏡是我覺得效果最好的修法，但仍然會掉色。問題其實是三個一起出現：
 
 1. **PQ → BT.709 gamma 曲線轉換**常常被誤套（當成 HLG 或直接套 gamma 2.2）。
 2. **Full Range vs Limited Range** 沒處理好，黑位被抬高就「霧霧的」。
